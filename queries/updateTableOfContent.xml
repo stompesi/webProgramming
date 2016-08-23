@@ -1,0 +1,13 @@
+<query id="updateTableOfContent" action="update">
+  <tables>
+    <table name="table_of_contents" />
+  </tables>
+  <columns>
+    <column name="parent_table_of_content_srl" var="parent_table_of_content_srl" default="0" />
+    <column name="location" var="location" notnull="notnull"/>
+    <column name="title" var="title" notnull="notnull"/>
+  </columns>        
+  <conditions>
+    <condition operation="equal" column="table_of_content_srl" var="table_of_content_srl" notnull="notnull" />
+  </conditions>
+</query>

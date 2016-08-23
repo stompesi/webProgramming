@@ -1,0 +1,49 @@
+<!-- Select 예제 -->
+
+<!-- 최상위 노드 -->
+<!-- id: 쿼리 id / 파일명과 동일해야 함 -->
+<!-- action: 쿼리 타입 [select / insert / delete / insert-select] -->
+<query id="ㅁㄴㅇㄹㅁㄴㅇㄹ" action="select">
+    <tables>
+        <!-- 테이블을 나타내는 노드 -->
+        <!-- name: 테이블 이름 -->
+        <table name="modules" />
+    </tables>
+    <columns>
+        <!-- 칼럼을 나타내는 노드 -->
+        <!-- name: 컬럼 이름 -->
+        <column name="*" />
+    </columns>
+    <conditions>
+        <!-- where 절 조건을 나타내는 노드 -->
+        <!-- peration: 연산자 [equeal / more / excess / less / below / like_tail / like_prefix / like / notlike_tail / notlike_prefix / notlike / in / notin / or / xor / not / notequal / between / null / notnull] -->
+        <!-- column: 컬럼 이름 -->
+        <!-- default: 조건의 기본값 / default 속성이 없는 condition은 var 값이 파라미터에 없으면 쿼리에서 제외 됨 -->
+        <!-- var: 쿼리 파리미터의 사용할 변수 이름 -->
+        <!-- pipe: 조건을 이어 붙일 때 사용할 연산자 -->
+        <condition operation="equal" column="module" default="board" />
+
+        <!-- 여러 조건을 ()로 묶을 때 사용 -->
+        <group pipe="and">
+            <condition operation="like" column="mid" var="s_mid" pipe="or" />
+            <condition operation="like" column="browser_title" var="s_browser_title" pipe="or" />
+            <condition operation="like" column="comment" var="s_comment" pipe="or" />
+        </group>
+        <condition operation="equal" column="module_category_srl" var="s_module_category_srl" pipe="and" />
+    </conditions>
+
+    <!-- 쿼리 결과를 페이지에 따라 보여줄 때 사용 -->
+    <navigation>
+        <!-- 정렬 기준을 나타내는 노드 -->
+        <index var="sort_index" default="module_srl" order="desc" />
+
+        <!-- 한페이지에 나타낼 row 수 -->
+        <list_count var="list_count" default="20" />
+
+        <!-- 한 페이지에 나타낼 페이지네이션 페이지 개수 -->
+        <page_count var="page_count" default="10" />
+
+        <!-- 페이지 -->
+        <page var="page" default="1" />
+    </navigation>
+</query>

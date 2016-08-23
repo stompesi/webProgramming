@@ -1,0 +1,19 @@
+<load target="./lib/bootstrap/css/bootstrap.css" />
+<load target="./css/side_menu.css" />
+<load target="./css/editor.css" />
+
+<load target="./lib/bootstrap/js/bootstrap.js" />
+<load target="./js/side_menu.js" />
+<!--@if($logged_info->is_admin == 'Y')-->
+  <load target="./js/side_menu_admin.js" />
+<!--@end-->
+<load target="./js/editor.js" />
+<load target="./js/common.js" />
+
+<include target="_header.html" />
+<include target="_side_menu.html"/>
+<include target="_editor.html" />
+
+
+
+

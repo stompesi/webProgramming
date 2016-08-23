@@ -1,0 +1,11 @@
+<query id="updateTableOfContentPath" action="update">
+  <tables>
+    <table name="table_of_contents" />
+  </tables>
+  <columns>
+    <column name="path" var="path" default="0" />
+  </columns>        
+  <conditions>
+    <condition operation="equal" column="table_of_content_srl" var="table_of_content_srl" notnull="notnull" />
+  </conditions>
+</query>

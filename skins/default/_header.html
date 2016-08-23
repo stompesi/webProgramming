@@ -1,0 +1,82 @@
+<header class="navbar navbar-inverse navbar-fixed-top" role="navigation"> 
+  <div class="container"> 
+    <div class="navbar-header"> 
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar"> 
+      <span class="sr-only">Toggle navigation</span> 
+      <span class="icon-bar"></span> 
+      <span class="icon-bar"></span> 
+      <span class="icon-bar"></span> 
+      </button> 
+    </div> 
+
+    <nav id="navbar" class="collapse navbar-collapse"> 
+      <ul class="nav navbar-nav"> 
+        <li>
+          <a id="menu-btn" href="javascript:void(0)">
+            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> {$lang->menu} 
+          </a>
+        </li>
+        <li>
+          <a id="run-btn" href="javascript:void(0)">
+            <span class="glyphicon glyphicon-play" aria-hidden="true"></span> {$lang->execute} 
+          </a>
+        </li> 
+
+        <li>
+          <a id="reset-code-btn" href="javascript:void(0)">
+            <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> {$lang->reset}
+          </a>
+        </li>
+
+        <li>
+          <a id="reset-code-btn" href="javascript:void(0)">
+            <label>
+              <input id="show-new-window" type="checkbox" checked="checked">
+              <span style="vertical-align:top;">새창으로 결과보기</span>
+            </label>
+          </a>
+        </li>
+        
+
+        <li>
+          <a href="{geturl('')}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> {$lang->exit} </a>
+        </li>
+
+        <!--@if($is_logged)-->
+        <!-- after_login -->
+        <li cond="$logged_info->is_admin == 'Y'">
+          <a id="save-code-btn" href="javascript:void(0)">
+            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> {$lang->save}
+          </a>
+        </li>
+        <!-- /after_login -->
+        <!--@end-->
+        
+      </ul> 
+      
+      <ul class="nav navbar-nav navbar-right"> 
+        <!--@if($is_logged)-->
+        <!-- after_login -->
+        <!-- admin -->
+        <li cond="$logged_info->is_admin == 'Y'">
+          <a href="{getUrl('', 'module', 'admin')}" target="_blank" title="{$lang->cmd_management}">
+            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> {$lang->cmd_management}
+          </a>
+        </li>
+        <li><a href="{getUrl('act', 'dispMemberLogout')}"> {$lang->cmd_logout} </a></li>
+        <!-- /after_login -->
+        
+        <!--@else-->
+        <!-- before_login -->
+        <!-- <li>
+          <a href="#" data-toggle="modal" data-target="#login-modal"> {$lang->cmd_login} </a>
+        </li> 
+        <li>
+          <a href="#" data-toggle="modal" data-target="#join-modal"> {$lang->cmd_signup} </a>
+        </li> -->
+        <!-- /before_login -->
+        <!--@end-->
+      </ul> 
+    </nav> 
+  </div> 
+</header>

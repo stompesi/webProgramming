@@ -1,0 +1,12 @@
+<query id="getTableOfContentByParentTableOfContentSrlAndLocation" action="select">
+  <tables>
+      <table name="table_of_contents" />
+  </tables>
+  <columns>
+      <column name="*" />
+  </columns>
+  <conditions>
+    <condition operation="equal" column="parent_table_of_content_srl" var="parent_table_of_content_srl" notnull="notnull" />
+    <condition operation="equal" column="location" var="location" notnull="notnull" pipe="and"/>        
+  </conditions>
+</query>

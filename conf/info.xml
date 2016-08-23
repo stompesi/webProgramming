@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="0.2">
+  <title xml:lang="ko">webeditor</title>
+  
+  <description xml:lang="ko">
+    웹 에디트를 할 수 있는 모듈
+  </description>
+  
+  <version>1</version>
+  
+  <date>2016-07-19</date>
+  
+  <category>service</category>
+  
+  <link>stompesi@gmail.com</link>
+  
+  <author email_address="stompesi@gmail.com" link="">
+    <name xml:lang="ko">JongBeen Han</name>
+  </author>
+</module>

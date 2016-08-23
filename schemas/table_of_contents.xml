@@ -1,0 +1,13 @@
+<table name="table_of_contents">
+    <column name="table_of_content_srl" type="number" size="11" notnull="notnull" auto_increment="auto_increment" primary_key="primary_key" />
+    
+    <column name="module_srl" type="number" size="11" default="0" notnull="notnull" index="idx_module_srl" />
+
+    <column name="parent_table_of_content_srl" type="number" size="11" default="0" notnull="notnull" index="idx_table_of_content_srl" />
+    <column name="location" type="number" size="11" notnull="notnull" /> 
+
+    <column name="title" type="varchar" size="255" notnull="notnull" /> 
+    <column name="path" type="varchar" size="255" notnull="notnull" /> 
+    <column name="type" type="varchar" size="10" notnull="notnull"/>
+    
+</table>

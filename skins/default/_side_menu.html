@@ -1,0 +1,71 @@
+<div id="side-menu" class="sidenav">
+
+  <div id="current-view-info" style="position: absolute;
+    top: 50px;
+    left: 10px;
+    font-size: 25px;
+    color: white;
+    max-width: 180px;
+    overflow:hidden;
+    white-space:nowrap;
+    -ms-text-overflow:ellipsis;
+    text-overflow:ellipsis;">
+  </div> 
+
+
+
+  <a id="close-btn" href="javascript:void(0)">&times;</a>
+
+  <!--@if($logged_info->is_admin == 'Y')-->
+  <!-- 추가 -->
+
+  <div class="btn-group btn-group-sm" role="group" aria-label="..." style="margin: 10px 0px;">
+    <button class="btn btn-default" id="add-folder-btn" data-add-form="folder-form">폴더추가</button>
+    <button class="btn btn-default" id="add-file-btn" data-add-form="file-form">파일추가</button>
+  </div>
+
+  <div class="btn-group btn-group-sm" role="group" aria-label="..." style="margin: 10px 0px;">
+    <button class="btn btn-default" id="reset-menu-btn">초기화</button>
+    <button class="btn btn-default" id="save-menu-btn">저장</button>
+    <button class="btn btn-default" id="sync-menu-btn">싱크</button>
+  </div>
+
+
+  <div class="input-group" id="add-form" style="display: none;">
+    <input class="form-control"> 
+    <span class="input-group-btn"> 
+      <button class="btn btn-default" id="add-btn" data-add-form>Go!</button> 
+    </span> 
+  </div>
+
+  <div id="folder-form" style="display: none;">
+    <li>
+      <a data-event-click-item rel="folder">
+        <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
+        <span class="title"></span>
+      </a>
+      <ul style="display: none;" class="folder"></ul>
+      <a class="del" href="javascript:void(0)" style="display: none;">x</a>
+    </li>
+  </div>
+
+  <div id="file-form" style="display: none;">
+    <li>
+      <a data-event-click-item rel="file">
+        <span class="glyphicon glyphicon-file" aria-hidden="true"></span> 
+        <span class="title"></span> 
+      </a>
+      <a class="del" href="javascript:void(0)" style="display: none;">x</a>
+    </li>
+  </div>
+  <!--@end-->
+  <ul>
+    <li data-table-of-content-srl="0">
+      <ul class="folder" id="sortable-ul" >    
+       {$side_menu}
+      </ul>
+    </li>
+  </ul>
+  
+</div>
+

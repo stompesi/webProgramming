@@ -1,0 +1,17 @@
+<!-- Delete 예제 -->
+
+<!-- 최상위 노드 -->
+<!-- id: 쿼리 id / 파일명과 동일해야 함 -->
+<!-- action: 쿼리 타입 [select / insert / delete / insert-select] -->
+<query id="deleteExample" action="delete">
+    <tables>
+        <!-- 테이블을 나타내는 노드 -->
+        <!-- name: 테이블 이름 -->
+        <table name="sites" />
+    </tables>
+    <conditions>
+      <condition operation="equeal" column="site_srl" var="site_srl" filter="number" notnull="notnull" />
+    </conditions>
+</query>
+
+<!-- https://github.com/xpressengine/xe-core/tree/master/tests/classes/db/db/xml_query/mysql/data 확인해보기 -->

@@ -1,0 +1,11 @@
+<query id="getTableOfContentByTableOfContentSrl" action="select">
+    <tables>
+        <table name="table_of_contents" />
+    </tables>
+    <columns>
+        <column name="*" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="table_of_content_srl" var="table_of_content_srl" notnull="notnull"/>        
+    </conditions>
+</query>

@@ -1,0 +1,19 @@
+<!-- 현재 위치에 다른 템플릿 삽입 -->
+<include target="_head.html" />
+
+<form action="./" method="post">
+  <input type="hidden" name="mid" value="{$mid}" />
+  <input type="hidden" name="act" value="procWebeditorWrite" />
+
+  <!-- XE 템플릿에서만 사용되는 가상 태그: 하나로 묶음-->
+  <!-- 해당 조건을 만족시켰을때 보여주는 것  -->
+  <block cond="!$logged_info"> 
+    {$lang->nick_name}: <input type="text" name="nick_name" /> <br>
+
+    {$lang->title}: <input type="text" name="title" /> <br>
+
+    <textarea name="content" cols="100" rows="20"></textarea> <br>
+
+    <button type="submit">{$lang->cmd_registration}</button>
+  </block>
+</form>

@@ -1,0 +1,9 @@
+<query id="deleteTableOfContentsInFolder" action="delete">
+  <tables>
+      <table name="table_of_contents" />
+  </tables>
+  <conditions>
+    <condition operation="equal" column="parent_table_of_content_srl" var="parent_table_of_content_srl" notnull="notnull"/>
+  </conditions>
+</query>
+

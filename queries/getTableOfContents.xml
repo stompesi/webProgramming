@@ -1,0 +1,11 @@
+<query id="getTableOfContents" action="select">
+    <tables>
+        <table name="table_of_contents" />
+    </tables>
+    <columns>
+        <column name="*" />
+    </columns>
+    <navigation>
+        <index var="table_of_content_srl" default="table_of_content_srl" order="asc" />
+    </navigation>
+</query>

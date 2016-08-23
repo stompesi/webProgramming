@@ -1,0 +1,6 @@
+<query id="deleteTableOfContents" action="delete">
+    <tables>
+        <table name="table_of_contents" />
+    </tables>
+</query>
+

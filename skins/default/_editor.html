@@ -1,0 +1,18 @@
+<div id="web-editor-container">
+  <div id="editor"></div>
+  <div id="dragbar"></div>
+  <iframe id="result" frameBorder="0"></iframe>
+</div>
+
+
+<script>
+  var editor = ace.edit("editor");
+  editor.setTheme("ace/theme/sqlserver");
+  editor.session.setMode("ace/mode/html");
+  editor.setOptions({
+      autoScrollEditorIntoView: true,
+      fontSize: '15px',
+      tabSize: 2, 
+      useSoftTabs: true
+  });
+</script>

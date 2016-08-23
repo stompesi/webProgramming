@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+  <grants>
+    <grant name="write_source_code" default="guest">
+      <title xml:lang="ko">코드추가</title>
+    </grant>
+  </grants>
+  <permissions>
+    <permission action="procWebeditorAdminSimpleSetup" target="manager" />
+    <permission action="getWebeditorAdminSimpleSetup" target="manager" />
+
+    <permission action="procWebeditorAdminInsertTableOfContent" target="manager" />
+    <permission action="procWebeditorAdminSyncCodeBySourceCodeFolder" target="manager" />
+    <permission action="procWebeditorAdminDeleteTableOfContents" target="manager" />
+
+    <permission action="getWebeditorAdminTableOfContent" target="manager" />
+    <permission action="procWebeditorAdminChangeTableOfContents" target="manager" />
+
+  </permissions>
+  <actions>
+    <action name="procWebeditorAdminSyncCodeBySourceCodeFolder" type="controller"/>
+    <action name="procWebeditorAdminInsertTableOfContent" type="controller"/>
+    <action name="procWebeditorAdminDeleteTableOfContents" type="controller"/>
+    <action name="procWebeditorAdminChangeTableOfContents" type="controller"/>
+    
+
+    
+
+
+    <action name="getWebeditorAdminTableOfContent" type="model"/>
+
+    <action name="getWebeditorSourceCode" type="model"/>
+    
+    <action name="dispWebeditorSourceCode" type="view" standalone="false" />
+
+    <action name="procWebeditorSaveSourceCode" type="controller" standalone="false" />
+    
+
+
+    <action name="getWebeditorAdminSimpleSetup" type="model" simple_setup_index="true" />  
+    <action name="dispWebeditorAdminIndex" type="view" standalone="false" admin_index="true" />
+    <action name="procWebeditorAdminSimpleSetup" type="controller" />
+    <action name="dispWebeditorIndex" type="view" standalone="false" index="true" />
+    <action name="dispWebeditorWrite" type="view" standalone="false" />
+    <action name="procWebeditorWrite" type="controller" standalone="false" />
+  </actions>
+</module>

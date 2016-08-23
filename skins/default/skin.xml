@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<skin version="0.2">
+  <title xml:lang="ko">Web Editor Default Skin</title>
+  <description xml:lang="ko">This is webeditor default skin. </description>
+
+  <date>2016-08-11</date>
+
+  <link>stompesi@gmail.com</link>
+
+  <license link="stompesi@gmail.com">Free</license>
+  <version> 1.0</version>
+
+  <author email_address="stompesi@gmail.com" link="stompesi@gmail.com">
+    <name xml:lang="ko">JongBeen Han</name>
+  </author>
+  <extra_vars />
+</skin>

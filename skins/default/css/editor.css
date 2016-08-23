@@ -1,0 +1,25 @@
+html, body {
+  height: 100%;
+}
+#web-editor-container {
+  transition: margin-left .5s;
+  height: 100%;
+  padding: 60px 10px 10px 10px;
+}
+
+#editor, #result {
+  float: left;
+  height: 100%;
+  width: 49.75%
+}
+#dragbar {
+  float: left;
+  height: 100%;
+  width: 1%;
+  cursor: col-resize;
+}
+
+#editor, #result {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+

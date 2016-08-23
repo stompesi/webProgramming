@@ -1,0 +1,13 @@
+<query id="insertTableOfContent" action="insert">
+  <tables>
+    <table name="table_of_contents" />
+  </tables>
+  <columns>
+    <column name="module_srl" var="module_srl" default="0" />
+    <column name="parent_table_of_content_srl" var="parent_table_of_content_srl" default="0" />
+    <column name="location" var="location" notnull="notnull"/>
+    <column name="title" var="title" notnull="notnull"/>
+    <column name="path" var="path" notnull="notnull"/>
+    <column name="type" var="type" notnull="notnull"/>
+  </columns>        
+</query>
