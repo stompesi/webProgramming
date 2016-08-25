@@ -1,0 +1,15 @@
+<div id="side-menu" class="sidenav">
+  <ul>
+    <li class="chapter-title">
+      {$chapter->title}
+    </li>
+    <!--@foreach($chapterList as $val)-->
+    <li>
+      <a href="{$val->table_of_content_srl}">
+        {$val->title}
+      </a>
+    </li>
+    <!--@end-->
+  </ul>
+</div>
+

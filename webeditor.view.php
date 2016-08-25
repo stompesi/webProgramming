@@ -4,17 +4,36 @@
 
 
     public function dispWebeditorIndex() {
-      Context::addJsFile($this->module_path.'tpl/lib/ace-builds-1.2.3/src/ace.js');
+      Context::addJsFile($this->module_path.'tpl/lib/ace-builds-1.2.5/src/ace.js');
     
     
       $sideMenuHtml = "";
       $this->createSideMenuTableOfContents($sideMenuHtml, "0");
+      $chapterList = $this->getChapterTableOfContents("0");
 
-      Context::set('side_menu', $sideMenuHtml);
+      // error_log( print_R($chapterList,TRUE) );
+      Context::set('chapterList', $chapterList->data);
       
       $this->setTemplateFile('index');
     }
 
+    public function dispWebeditorTableOfContents() {
+      $oWebEditorModel = getModel('webeditor');
+      $parent_table_of_content_srl = Context::get('parent_table_of_content_srl');
+
+      
+      $output = $oWebEditorModel->getWebeditorTableOfContentByTableOfContentSrl($parent_table_of_content_srl);
+      $chapterList = $this->getChapterTableOfContents($parent_table_of_content_srl);
+
+      $this->add('chapter', $output->data);
+      $this->add('chapterList', $chapterList->data);
+  
+    }
+
+    function getChapterTableOfContents($parent_table_of_content_srl) {
+      $oWebEditorModel = getModel('webeditor');
+      return $oWebEditorModel->getTableOfContentsInFolder($parent_table_of_content_srl);
+    }
     function createSideMenuTableOfContents(&$sideMenuHtml, $parent_table_of_content_srl) {
       $oWebEditorModel = getModel('webeditor');
 
@@ -80,7 +99,9 @@
         $code = file_get_contents($file_path);
 
         $this->add("code", $code);
-        $this->add("path", $file_path);
+        $this->add("path", dirname($file_path));
+        $this->add("title", $output->data->title);
+
       } else {
         $this->add("result", "code 불러오기 실패");
       }

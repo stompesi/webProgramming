@@ -22,8 +22,11 @@
     <action name="procWebeditorAdminInsertTableOfContent" type="controller"/>
     <action name="procWebeditorAdminDeleteTableOfContents" type="controller"/>
     <action name="procWebeditorAdminChangeTableOfContents" type="controller"/>
+
+    
     
 
+    <action name="dispWebeditorTableOfContents" type="view" standalone="false" />
     
 
 
