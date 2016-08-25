@@ -6,7 +6,8 @@
       <column name="*" />
   </columns>
   <conditions>
-    <condition operation="equal" column="parent_table_of_content_srl" var="parent_table_of_content_srl" notnull="notnull" />
+    <condition operation="equal" column="module_srl" var="module_srl" notnull="notnull"/>        
+    <condition operation="equal" column="parent_table_of_content_srl" var="parent_table_of_content_srl" notnull="notnull" pipe="and"/>
     <condition operation="equal" column="location" var="location" notnull="notnull" pipe="and"/>        
   </conditions>
 </query>

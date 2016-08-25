@@ -6,22 +6,39 @@
     </grant>
   </grants>
   <permissions>
+    <!-- not use -->
+    <permission action="procWebeditorAdminChangeTableOfContents" target="manager" />
+    <permission action="procWebeditorAdminDeleteTableOfContents" target="manager" />
+    <permission action="procWebeditorAdminInsertTableOfContent" target="manager" />
+
+
+    <!-- use -->
     <permission action="procWebeditorAdminSimpleSetup" target="manager" />
+    <permission action="procWebeditorAdminSyncCodeBySourceCodeFolder" target="manager" />
+
+
     <permission action="getWebeditorAdminSimpleSetup" target="manager" />
 
-    <permission action="procWebeditorAdminInsertTableOfContent" target="manager" />
-    <permission action="procWebeditorAdminSyncCodeBySourceCodeFolder" target="manager" />
-    <permission action="procWebeditorAdminDeleteTableOfContents" target="manager" />
+    
+    
+    
 
     <permission action="getWebeditorAdminTableOfContent" target="manager" />
-    <permission action="procWebeditorAdminChangeTableOfContents" target="manager" />
+    
 
   </permissions>
   <actions>
-    <action name="procWebeditorAdminSyncCodeBySourceCodeFolder" type="controller"/>
-    <action name="procWebeditorAdminInsertTableOfContent" type="controller"/>
-    <action name="procWebeditorAdminDeleteTableOfContents" type="controller"/>
+    <!-- not use -->
     <action name="procWebeditorAdminChangeTableOfContents" type="controller"/>
+    <action name="procWebeditorAdminDeleteTableOfContents" type="controller"/>
+    <action name="procWebeditorAdminInsertTableOfContent" type="controller"/>
+
+    <!-- use -->
+    <action name="procWebeditorAdminSimpleSetup" type="controller" />
+    <action name="procWebeditorAdminSyncCodeBySourceCodeFolder" type="controller"/>
+    
+    
+    
 
     
     
@@ -42,7 +59,7 @@
 
     <action name="getWebeditorAdminSimpleSetup" type="model" simple_setup_index="true" />  
     <action name="dispWebeditorAdminIndex" type="view" standalone="false" admin_index="true" />
-    <action name="procWebeditorAdminSimpleSetup" type="controller" />
+    
     <action name="dispWebeditorIndex" type="view" standalone="false" index="true" />
     <action name="dispWebeditorWrite" type="view" standalone="false" />
     <action name="procWebeditorWrite" type="controller" standalone="false" />

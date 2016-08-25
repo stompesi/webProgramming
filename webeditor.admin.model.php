@@ -11,19 +11,22 @@
     *  $setupUrl: 상세서정 URL
     */
     public function getWebeditorAdminSimpleSetup($moduleSrl, $setupUrl) {
-      // 1. 모듈 정보, 모듈 설정 가져오기
+
+      if (!$moduleSrl) { return; }
+      
       $oModuleModel = getModel('module');
-      $moduleInfo = $oModuleModel->getModuleInfoByModuleSrl($moduleSrl); // 모듈 정보가져오기
-      $config = $oModuleModel->getModulePartConfig('webeditor', $moduleSrl); // 모듈 설정 가져오기
-
-      // 2. 템플릿에서 사용할 수 있도록 세팅
-      Context::set('module_info', $moduleInfo); // 템플릿 변수를 세팅하는 메소드(변수이름, 값)
+      $moduleInfo = $oModuleModel->getModuleInfoByModuleSrl($moduleSrl);
+      if (!$moduleInfo) { return; }
+      
+      Context::set('module_info', $moduleInfo);
+      
+      $config = $oModuleModel->getModulePartConfig('webeditor', $moduleSrl);    
       Context::set('config', $config);
-
-      // 3. 템플릿 컴파일한 결과 반환 
-      $oTemplate = TemplateHandler::getInstance(); // 템플릿을 다루기 위한 클레스
-      $html = $oTemplate->compile($this->module_path . 'tpl/', 'simple_setup'); // 특정 템플릿을 컴파일한 결과를 반환
-
+      
+      $oTemplate = TemplateHandler::getInstance();
+      $html = $oTemplate->compile($this->module_path . 'tpl/', 'simple_setup');
+      
+      error_log($moduleInfo->module_srl);
       return $html;
     }
 
@@ -34,20 +37,27 @@
       // 
     }
 
-    public function deleteTableOfContentsInFolder($parent_table_of_content_srl) {
+    public function deleteTableOfContents($module_srl) {
+      $args = new stdClass();
+      $args->module_srl = $module_srl;
+
+      executeQuery('webeditor.deleteTableOfContents', $args);
+    }
+
+    public function deleteTableOfContentsInFolder($module_srl, $parent_table_of_content_srl) {
       $oWebEditorModel = getModel('webeditor');
 
       $args = new stdClass();
       $args->parent_table_of_content_srl = $parent_table_of_content_srl;
-      
+      $args->module_srl = $module_srl;
 
-      $output = $oWebEditorModel->getTableOfContentsInFolder($parent_table_of_content_srl);
+      $output = $oWebEditorModel->getTableOfContentsInFolder($module_srl, $parent_table_of_content_srl);
       error_log("output - 1");
       error_log(print_R($output,TRUE));
 
       foreach($output->data as $item) {
         if($item->type =="folder") {
-          $this->deleteTableOfContentsInFolder($item->table_of_content_srl);
+          $this->deleteTableOfContentsInFolder($module_srl, $item->table_of_content_srl);
 
           $this->deleteTableOfContent($item->table_of_content_srl);
         } 
@@ -86,13 +96,12 @@
 
    
 
-    public function insertTableOfContent($parent_table_of_content_srl, $location, $title, $path, $type) {
+    public function insertTableOfContent($module_srl, $parent_table_of_content_srl, $location, $title, $path, $type) {
       // error_log('insert width parent_table_of_content_srl: '.$parent_table_of_content_srl.' order: '.$location);      
       $oTableOfContent = new stdClass();
       $oTableOfContent->location = $location;
       $oTableOfContent->parent_table_of_content_srl = $parent_table_of_content_srl;
-
-      $oTableOfContent->module_srl = Context::get('module_srl');
+      $oTableOfContent->module_srl = $module_srl;
       $oTableOfContent->title = $title;
       $oTableOfContent->path = $path;
       $oTableOfContent->type = $type;

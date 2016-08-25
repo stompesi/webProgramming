@@ -22,18 +22,21 @@
   	}
 
 
-    public function getTableOfContentsInFolder($parent_table_of_content_srl) {
+    public function getTableOfContentsInFolder($module_srl, $parent_table_of_content_srl) {
       $args = new stdClass();
       $args->parent_table_of_content_srl = $parent_table_of_content_srl;
+      $args->module_srl = $module_srl;
 
       $output = executeQueryArray('webeditor.getTableOfContentsInFolder', $args);
       return $output;
     }
 
-    public function getWebeditorTableOfContentByParentTableOfContentSrlAndLocation($parent_table_of_content_srl, $location) {
+    public function getWebeditorTableOfContentByParentTableOfContentSrlAndLocation($module_srl, $parent_table_of_content_srl, $location) {
       $args = new stdClass();
       $args->parent_table_of_content_srl = $parent_table_of_content_srl;
       $args->location = $location;
+      $args->module_srl = $module_srl;
+
       $output = executeQuery('webeditor.getTableOfContentByParentTableOfContentSrlAndLocation', $args);      
       return $output;
     }

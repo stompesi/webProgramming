@@ -1,6 +1,10 @@
 <query id="deleteTableOfContents" action="delete">
-    <tables>
-        <table name="table_of_contents" />
-    </tables>
+  <tables>
+      <table name="table_of_contents" />
+  </tables>
+
+  <conditions>
+    <condition operation="equal" column="module_srl" var="module_srl" notnull="notnull"/>
+  </conditions>
 </query>
 

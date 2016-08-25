@@ -5,7 +5,13 @@
     <columns>
         <column name="*" />
     </columns>
+    
+    <conditions>
+      <condition operation="equal" column="module_srl" var="module_srl" notnull="notnull"/>
+    </conditions>
+
     <navigation>
         <index var="table_of_content_srl" default="table_of_content_srl" order="asc" />
+
     </navigation>
 </query>

@@ -33,7 +33,11 @@ jQuery(document).ready(function($){
     $('#chapter-lsit').find('.active').removeClass('active');
     $(this).addClass('active');
 
-    $.exec_json("webeditor.dispWebeditorTableOfContents", {parent_table_of_content_srl: $(this).attr('href')}, function(result) { 
+    var params = {
+      module_srl: $('#module_srl').val(),
+      parent_table_of_content_srl: $(this).attr('href')
+    };
+    $.exec_json("webeditor.dispWebeditorTableOfContents", params, function(result) { 
       var liHtml = '<li style="padding-left: 15px; margin-top: 10px; margin-bottom: 10px; font-size: 30px;font-weight: bold;border: 1px solid #FF5252;border-radius: 10px;background: #FF5252;color: white;">' + result.chapter.title + '</li>'
       var chapterList = result.chapterList;
       for(var index in chapterList) {

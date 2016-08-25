@@ -1,43 +1,43 @@
 <?php
   class webeditorView extends webeditor {
-
-
-
     public function dispWebeditorIndex() {
       Context::addJsFile($this->module_path.'tpl/lib/ace-builds-1.2.5/src/ace.js');
     
-    
       $sideMenuHtml = "";
       $this->createSideMenuTableOfContents($sideMenuHtml, "0");
-      $chapterList = $this->getChapterTableOfContents("0");
+      $chapterList = $this->getChapterTableOfContents($this->module_info->module_srl, "0");
 
-      // error_log( print_R($chapterList,TRUE) );
       Context::set('chapterList', $chapterList->data);
-      
+      Context::set('module_srl', $this->module_info->module_srl);
+
       $this->setTemplateFile('index');
     }
 
     public function dispWebeditorTableOfContents() {
+      $module_srl = Context::get('module_srl');
+
       $oWebEditorModel = getModel('webeditor');
       $parent_table_of_content_srl = Context::get('parent_table_of_content_srl');
 
       
       $output = $oWebEditorModel->getWebeditorTableOfContentByTableOfContentSrl($parent_table_of_content_srl);
-      $chapterList = $this->getChapterTableOfContents($parent_table_of_content_srl);
+      $chapterList = $this->getChapterTableOfContents($module_srl, $parent_table_of_content_srl);
 
       $this->add('chapter', $output->data);
       $this->add('chapterList', $chapterList->data);
   
     }
 
-    function getChapterTableOfContents($parent_table_of_content_srl) {
+    function getChapterTableOfContents($module_srl, $parent_table_of_content_srl) {
       $oWebEditorModel = getModel('webeditor');
-      return $oWebEditorModel->getTableOfContentsInFolder($parent_table_of_content_srl);
+
+      return $oWebEditorModel->getTableOfContentsInFolder($module_srl, $parent_table_of_content_srl);
     }
     function createSideMenuTableOfContents(&$sideMenuHtml, $parent_table_of_content_srl) {
       $oWebEditorModel = getModel('webeditor');
+      $module_srl = $this->module_info->module_srl;
 
-      $output = $oWebEditorModel->getTableOfContentsInFolder($parent_table_of_content_srl);
+      $output = $oWebEditorModel->getTableOfContentsInFolder($module_srl, $parent_table_of_content_srl);
 
       foreach($output->data as $item) {
         if($item->type =="folder") {

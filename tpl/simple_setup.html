@@ -3,16 +3,16 @@
   <!-- {$변수명}: 변수를 출력하는 템플릿 문법 / Context::set() 에서 저장한 값 사용 -->
   <input 
     type="hidden" name="module_srl"
-    value="{$moudle_info->module_srl}" / >
+    value="{$module_info->module_srl}" / >
 
   <!-- act: 실행할 액션 / moudle.xml에 정한 값을 사용  -->
   <input 
     type="hidden" name="act"
-    value="procWebeditorAdminUpdateSimpleSetup" / >
+    value="procWebeditorAdminSimpleSetup" / >
 
   <!-- $lang: 언어 변수 / lang.xml 에서 지정한 값 사용 -->
-  {$lang->webeditor_title}
+  소스코드 폴더이름
   <input 
-    type="text" name="title"
-    value="{$config->title}" / >  
+    type="text" name="path"
+    value="{$config->path}" / >  
 </form>
