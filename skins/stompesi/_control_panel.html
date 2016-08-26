@@ -1,25 +1,29 @@
 <div class="control-panel-container">
-  <div class="panel panel-danger"> 
-    <div class="panel-heading"> 
-      <h3 class="panel-title">Control Menu</h3> 
-    </div> 
+  <div class="panel panel-default"> 
     <div class="panel-body">
-      <ul id="type-list" class="nav nav-pills">
+      <ul id="type-list" class="nav nav-pills nav-justified">
         <li class="active">
-          <a href="#">HTML</a>
+            <a href="#">HTML</a>
         </li>
         <li>
-          <a href="#">Javascript</a></li>
-        <li><a href="#">CSS</a></li>
+          <a href="#">Javascript</a>
+        </li>
+        <li>
+          <a href="#">CSS</a>
+        </li>
       </ul>
       <hr/>
 
-      <ul class="control-menu">
-        <li >
-          <a id="run-btn" href="">실행</a>
-        </li>
+      <ul class="nav nav-pills nav-justified">
         <li>
-          <a id="run-new-window-btn" href="{$val->table_of_content_srl}">새창으로 실행</a>
+          
+    <a class="" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      실행
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="width: 100%;">
+      <li><a href="#">실행</a></li>
+      <li><a href="#">새창으로 실행</a></li>
+    </ul>
         </li>
         <li>
           <a id="reset-code-btn" href="{$val->table_of_content_srl}">초기화</a>
