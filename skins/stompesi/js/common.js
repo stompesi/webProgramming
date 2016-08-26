@@ -6,7 +6,6 @@ jQuery(document).ready(function($){
   $('#side-menu').on('click', 'a', function(event) {
     event.preventDefault();
   
-    // ㅁㄴㅇㄹ
 
     $('#side-menu').find('.active').removeClass('active');
     $(this).addClass('active');
@@ -21,7 +20,6 @@ jQuery(document).ready(function($){
       webEditor.setCode(code);
       webEditor.run();
       webEditor.setPath(result.path);
-      // alert(webEditor.getPath());
       $('.information').find('.panel-title').text(result.title);
     });
 
@@ -38,7 +36,7 @@ jQuery(document).ready(function($){
       parent_table_of_content_srl: $(this).attr('href')
     };
     $.exec_json("webeditor.dispWebeditorTableOfContents", params, function(result) { 
-      var liHtml = '<li style="padding-left: 15px; margin-top: 10px; margin-bottom: 10px; font-size: 30px;font-weight: bold;border: 1px solid #FF5252;border-radius: 10px;background: #FF5252;color: white;">' + result.chapter.title + '</li>'
+      var liHtml = '<li class="chapter-title">' + result.chapter.title + '</li>'
       var chapterList = result.chapterList;
       for(var index in chapterList) {
         liHtml += '<li><a href="'+ chapterList[index].table_of_content_srl + '">' + chapterList[index].title + '</a></li>';
