@@ -243,7 +243,7 @@
       $oWebEditorAdminModel = getAdminModel('webeditor');
       $i = 0;
       foreach(glob($source_code_folder_path.'/*', GLOB_ONLYDIR) as $folder_path) {
-        $title = basename($folder_path);
+        $title = basename($folder_path)."장";
 
 
         $oWebEditorAdminModel->insertTableOfContent($module_srl, $parent_table_of_content_srl, $i, $title, $folder_path, "folder");

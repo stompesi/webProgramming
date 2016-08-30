@@ -19,4 +19,9 @@
   <item name="exit">
     <value xml:lang="ko">예제 종료</value>
   </item>
+
+  <item name="run_new_window">
+    <value xml:lang="ko">새창으로 실행</value>
+  </item>
+  
 </lang> 

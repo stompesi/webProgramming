@@ -18,8 +18,8 @@ jQuery(document).ready(function($){
     $.exec_json("webeditor.dispWebeditorSourceCode", params, function(result) { 
       var code =  result.code;
       webEditor.setCode(code);
-      webEditor.run();
       webEditor.setPath(result.path);
+      webEditor.run();
       $('.information').find('.panel-title').text(result.title);
     });
 

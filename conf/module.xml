@@ -11,21 +11,13 @@
     <permission action="procWebeditorAdminDeleteTableOfContents" target="manager" />
     <permission action="procWebeditorAdminInsertTableOfContent" target="manager" />
 
-
     <!-- use -->
     <permission action="procWebeditorAdminSimpleSetup" target="manager" />
     <permission action="procWebeditorAdminSyncCodeBySourceCodeFolder" target="manager" />
 
-
     <permission action="getWebeditorAdminSimpleSetup" target="manager" />
-
-    
-    
-    
-
     <permission action="getWebeditorAdminTableOfContent" target="manager" />
     
-
   </permissions>
   <actions>
     <!-- not use -->
@@ -37,26 +29,12 @@
     <action name="procWebeditorAdminSimpleSetup" type="controller" />
     <action name="procWebeditorAdminSyncCodeBySourceCodeFolder" type="controller"/>
     
-    
-    
-
-    
-    
-
     <action name="dispWebeditorTableOfContents" type="view" standalone="false" />
-    
-
-
     <action name="getWebeditorAdminTableOfContent" type="model"/>
-
     <action name="getWebeditorSourceCode" type="model"/>
-    
     <action name="dispWebeditorSourceCode" type="view" standalone="false" />
-
     <action name="procWebeditorSaveSourceCode" type="controller" standalone="false" />
     
-
-
     <action name="getWebeditorAdminSimpleSetup" type="model" simple_setup_index="true" />  
     <action name="dispWebeditorAdminIndex" type="view" standalone="false" admin_index="true" />
     
